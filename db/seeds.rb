@@ -1,14 +1,14 @@
 
-ServProv.delete_all
-sara_smith = ServProv.create provider_contact: 'ssmith@aaa.com', provider_name: 'Sara Smith',
+Provider.delete_all
+sara_smith = Provider.create provider_contact: 'ssmith@aaa.com', provider_name: 'Sara Smith',
                                     provider_address: '100 West Jackson Chicago IL 60614', rate: 105
-jim_jackson = ServProv.create provider_contact: 'jjackson@bbb.com', provider_name: 'Jim Jackson',
+jim_jackson = Provider.create provider_contact: 'jjackson@bbb.com', provider_name: 'Jim Jackson',
                                      provider_address: '100 West Monroe Peoria IL 60001', rate: 55
-junior_smith = ServProv.create provider_contact: 'jsmith@ccc.com',provider_name: 'Junior Smith',
+junior_smith = Provider.create provider_contact: 'jsmith@ccc.com',provider_name: 'Junior Smith',
                                       provider_address: '2 Capital St. Cleveland OH 44709',rate: 75
-karen_carter = ServProv.create provider_contact: 'kcarter@ddd.com', provider_name: 'Karen Carter',
+karen_carter = Provider.create provider_contact: 'kcarter@ddd.com', provider_name: 'Karen Carter',
                                       provider_address: '505 11th Ave New York NY 20005',rate: 100
-lucy_luciano = ServProv.create provider_contact: 'lluciano@eee.com', provider_name: 'Lucy Luciano',
+lucy_luciano = Provider.create provider_contact: 'lluciano@eee.com', provider_name: 'Lucy Luciano',
                                       provider_address: '100 Madison Ave New York NY 20005',rate: 900
 
 
@@ -44,7 +44,7 @@ clarence_darrow = Client.create client_contact: 'cdarrow@peoplelaw.com', client_
 Orders.delete_all
 Client.all.each do |client|
   rand(0..5).times do
-    Orders.create client_id: client.id, provider_id: ServProv.sample.id, service_id: Service.sample.id, amount: [100..10000].sample
+    Orders.create client_id: client.id, provider_id: Provider.sample.id, service_id: Service.sample.id, amount: [100..10000].sample
   end
 end
 

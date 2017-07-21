@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["service_id"], name: "index_orders_on_service_id"
   end
 
-  create_table "serv_provs", force: :cascade do |t|
+  create_table "providers", force: :cascade do |t|
     t.text "provider_contact"
     t.text "provider_name"
     t.text "provider_address"

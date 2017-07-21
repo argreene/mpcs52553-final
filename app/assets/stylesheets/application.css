@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+.thumbnail {
+    background-color: white;
+    height: 450px;
+    border: solid 1px #CCC;
+    box-shadow: 2px 2px 2px #CCC;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 1.7em;
+}
+
+.media {
+    margin-top: 36px;
+}
+.media-object {
+    width: 150px;
+}
+.thumbnail a img {
+    height: 150px;
+}
+.navbar-form input[type=text] {
+    width: 15em;
+}
+
+.rating {
+    color: red;
+}

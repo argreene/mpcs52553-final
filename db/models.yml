@@ -1,4 +1,4 @@
-ServProv
+Provider
   provider_contact: text
   provider_name: text
   provider_address: text

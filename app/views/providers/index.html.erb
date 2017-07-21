@@ -1,0 +1,23 @@
+<div class="row">
+
+  <% @providers.each do |p| %>
+
+  <!-- Product Thumbnail -->
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+
+      <div class="caption">
+        <h4><%= link_to p.provider_name, "/providers/#{p.id}"%></h4>
+
+        <p>
+          <%= p.provider_contact%>
+        </p>
+        <p class="price"><%= number_to_currency(p.rate) %></p>
+        <p><a href="#" class="btn btn-primary" role="button">Buy Now</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+</div>
