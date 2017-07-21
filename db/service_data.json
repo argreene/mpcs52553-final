@@ -1,0 +1,26 @@
+{ "services": [
+  {
+    "service_desc": "ESI"
+  },
+  {
+    "service_desc": "Title Search"
+  },
+  {
+    "service_desc": "Due Diligence"
+  },
+  {
+    "service_desc": "Expert Witness"
+  },
+  {
+    "service_desc": "Litigation"
+  },
+  {
+    "service_desc": "Real Estate Sale/Purchase"
+  },
+  {
+    "service_desc": "Asset Purchase"
+  },
+  {
+    "service_desc": "Entity Formation"
+  }
+]}

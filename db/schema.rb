@@ -12,4 +12,31 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "clients", force: :cascade do |t|
+    t.text "client_contact"
+    t.text "client_name"
+    t.text "client_address"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "provider_id"
+    t.integer "client_id"
+    t.integer "service_id"
+    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["provider_id"], name: "index_orders_on_provider_id"
+    t.index ["service_id"], name: "index_orders_on_service_id"
+  end
+
+  create_table "serv_provs", force: :cascade do |t|
+    t.text "provider_contact"
+    t.text "provider_name"
+    t.text "provider_address"
+    t.integer "rate"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.text "service_desc"
+  end
+
 end

@@ -1,3 +1,26 @@
+ServProv
+  provider_contact: text
+  provider_name: text
+  provider_address: text
+  rate: integer
+
+Service
+  service_desc: text
+
+Client
+  client_contact: text
+  client_name: text
+  client_address: text
+
+Order
+  amount: integer
+  provider_id: integer
+  client_id: integer
+  service_id: integer
+
+
+
+
 # This file allows you to specify your domain model
 # in .yml format.  Use `rails db:migrate` to apply your
 # specification to your development database.
