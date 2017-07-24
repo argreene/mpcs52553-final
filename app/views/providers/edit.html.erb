@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h1>Edit Listing #<%= params[:id] %></h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+
+  <%= form_tag("/providers/#{@provider.id}", method: 'patch') do  %>
+
+    <div class="form-group">
+      <%= label_tag :name, "Provider Name" %>
+      <%= text_field_tag :name, @provider.provider_name, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+       <%= label_tag :email, "Provider E-Mail" %>
+       <%= text_field_tag :email, @provider.provider_contact, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :address, "Provider Mailing Address" %>
+      <%= text_field_tag :address, @provider.provider_address, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :rate, "Hourly Rate" %>
+      <%= number_field_tag :rate, @provider.rate, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :description, "Description" %>
+      <%= text_area_tag :description, @provider.description,
+                        rows: 5, class: 'form-control' %>
+    </div>
+
+    <%= submit_tag "Update Provider Information", class: 'btn btn-success btn-lg'%>
+    or
+    <%= link_to "Cancel", "/providers/#{@provider.id}" %>
+
+  <% end %>
+
+  </div>
+</div>

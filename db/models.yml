@@ -3,14 +3,21 @@ Provider
   provider_name: text
   provider_address: text
   rate: integer
+  description: text
 
 Service
   service_desc: text
+
+SPS
+  provider_id: integer
+  service_id: integer
 
 Client
   client_contact: text
   client_name: text
   client_address: text
+  password_digest: text
+
 
 Order
   amount: integer

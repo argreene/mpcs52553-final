@@ -13,13 +13,14 @@ class ProvidersController < ApplicationController
 
   def create
     p = Provider.new
-    p.provider_contact = params["provider_contact"]
-    p.provider_name = params["provider_name"]
-    p.provider_address = params["provider_address"]
+    p.provider_contact = params["email"]
+    p.provider_name = params["name"]
+    p.provider_address = params["address"]
     p.rate = params["rate"].to_f
+    p.description = params["description"]
     p.save
 
-    redirect_to "/provider", notice: 'New provider successfuly registered.'
+    redirect_to "/providers", notice: 'New provider successfuly registered.'
   end
 
   def edit
@@ -28,18 +29,19 @@ class ProvidersController < ApplicationController
 
   def update
     p = Provider.find_by(id: params["id"])
-    p.provider_contact = params["provider_contact"]
-    p.provider_name = params["provider_name"]
-    p.provider_address = params["provider_address"]
-    p.rate = params["rate"].to_f * 100
+    p.provider_contact = params["email"]
+    p.provider_name = params["name"]
+    p.provider_address = params["address"]
+    p.rate = params["rate"].to_f
+    p.description = params["description"]
     p.save
 
-    redirect_to "/provider/#{p.id}", notice: 'Provider successfully updated.'
+    redirect_to "/providers/#{p.id}", notice: 'Provider successfully updated.'
   end
 
   def destroy
     @provider = Provider.find_by(id: params["id"])
     @provider.delete
-    redirect_to "/provider",  notice: 'Provider has been removed'
+    redirect_to "/providers",  notice: 'Provider has been removed'
   end
 end

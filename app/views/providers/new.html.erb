@@ -1,0 +1,44 @@
+<div class="page-header">
+  <h1>Register as a new provider</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+
+    <%= form_tag("/providers", method: 'post') do  %>
+
+    <div class="form-group">
+      <%= label_tag :name, "Provider Name" %>
+      <%= text_field_tag :name, "", autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :email, "Provider E-Mail" %>
+      <%= text_field_tag :email, "", autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :address, "Provider Mailing Address" %>
+      <%= text_field_tag :address, "", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :rate, "Hourly Rate" %>
+      <%= number_field_tag :rate, "100", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :description, "Description" %>
+      <%= text_area_tag :description, "",
+                        rows: 5, class: 'form-control' %>
+    </div>
+
+
+    <%= submit_tag "Submit new provider", class: 'btn btn-success btn-lg'%>
+    or
+    <%= link_to "Cancel", "/providers" %>
+
+  <% end %>
+
+  </div>
+</div>

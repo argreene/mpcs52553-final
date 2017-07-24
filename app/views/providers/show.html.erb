@@ -1,0 +1,55 @@
+<div class="page-header">
+  <h1><%= @provider.provider_name %></h1>
+
+  <p>
+
+    <%= link_to "Edit This Provider Information", "/providers/#{@provider.id}/edit" %>
+    |
+    <%= link_to "Delete This Listing", "/products/#{@provider.id}", method: 'delete', data: { confirm: "Are you crazy?" } %>
+  </p>
+</div>
+
+<div class="row">
+
+
+
+  <div class="col-sm-8">
+
+    <p>
+      <%= @provider.provider_contact %>
+    </p>
+
+    <p>
+      <%= @provider.provider_address %>
+    </p>
+
+    <p>
+      <%= @provider.description %>
+    </p>
+
+    <p class="price"><%= number_to_currency(@provider.rate) %>
+      <%= link_to "Hire", '#', class: "btn btn-lg btn-success" %>
+    </p>
+
+    <hr>
+
+
+    <%= form_tag("/spss", method: 'post') do %>
+        <%= hidden_field_tag :provider_id, @provider.id %>
+        <h3>Add a service for this provider</h3>
+        <p>
+          <% serv_ids = [] %>
+          <% Service.all.each do |service| %>
+          <%   serv_ids << service.id %>
+          <% end %>
+          <%= label_tag :service_id %>
+          <%= select_tag :service_id, options_for_select(serv_ids), prompt: "Select a service", class: '' %>
+        </p>
+
+        <%= submit_tag "Submit", class: 'btn btn-primary' %>
+    <% end %>
+
+
+  </div>
+
+</div>

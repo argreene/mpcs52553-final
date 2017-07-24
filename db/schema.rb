@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.text "client_contact"
     t.text "client_name"
     t.text "client_address"
+    t.text "password_digest"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -33,10 +34,18 @@ ActiveRecord::Schema.define(version: 0) do
     t.text "provider_name"
     t.text "provider_address"
     t.integer "rate"
+    t.text "description"
   end
 
   create_table "services", force: :cascade do |t|
     t.text "service_desc"
+  end
+
+  create_table "sps", force: :cascade do |t|
+    t.integer "provider_id"
+    t.integer "service_id"
+    t.index ["provider_id"], name: "index_sps_on_provider_id"
+    t.index ["service_id"], name: "index_sps_on_service_id"
   end
 
 end
