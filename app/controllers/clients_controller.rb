@@ -19,7 +19,7 @@ class ClientsController < ApplicationController
   def show
     @client = Client.find_by(id: params["id"])
 
-    if @client.present? && @client.id == session["user_id"]
+    if @client.present? && @client.id == session["client_id"]
       @orders = @client.orders
     else
       redirect_to root_url, notice: "Nice try!"
