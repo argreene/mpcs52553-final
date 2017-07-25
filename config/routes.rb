@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :providers
   resources :clients
   resources :spss
+  resources :results
 
  end
 

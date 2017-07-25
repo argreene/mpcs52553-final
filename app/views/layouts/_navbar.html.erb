@@ -17,11 +17,13 @@
         <li><%= link_to 'User Stories', "/help" %></li>
       </ul>
 
-      <form class="navbar-form navbar-left">
+      <form class="navbar-form navbar-left", action="/results">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+            <input name="search" type="text" class="form-control" placeholder="Search">
         </div>
       </form>
+
+
 
       <ul class="nav navbar-nav navbar-right">
         <% if session["client_id"].present? %>

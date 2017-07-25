@@ -1,0 +1,37 @@
+<div class="row">
+
+  <p>
+    Search term is <%=params[:search] %>
+  </p>
+
+  <% @providers.each do |p| %>
+
+
+
+      <!-- Provider Thumbnail -->
+  <div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+
+      <div class="caption">
+        <h4><%= link_to p.provider_name, "/providers/#{p.id}"%></h4>
+
+        <p>
+          <%= p.provider_contact%>
+        </p>
+        <p>
+          <%= p.provider_address %>
+        </p>
+
+        <p>
+          <%= truncate p.description, length: 40 %>
+          <%= link_to "[see more]", "/providers/#{p.id}" %>
+        </p>
+        <p class="price">Hourly Rate: <%= number_to_currency(p.rate) %></p>
+        <p><a href="#" class="btn btn-primary" role="button">Hire provider</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+</div>
