@@ -27,8 +27,17 @@
       <%= @provider.description %>
     </p>
 
+
     <p class="price"><%= number_to_currency(@provider.rate) %>
-      <%= link_to "Hire", '#', class: "btn btn-lg btn-success" %>
+      <% if session["client_id"].present? %>
+          <% user = Client.find_by(id: session["client_id"]) %>
+          <% user_id = user.id %>
+          <%= link_to "Hire", "/orders/#{@provider.id}?client=#{user_id}", class: "btn btn-lg btn-success" %>
+      <% else %>
+          Sign In To Hire This Attorney
+      <% end %>
+
+
     </p>
 
     <hr>

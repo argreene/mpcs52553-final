@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1>Hire Lawyer</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+
+
+    <%= form_tag("/orders", method: 'post') do  %>
+
+        <div class="form-group">
+          <%= hidden_field_tag :client_id, @client.id %>
+          Client: <%= label_tag :client, @client.client_name %>
+        </div>
+
+
+      <div class="form-group">
+        <%= hidden_field_tag :provider_id, @provider.id %>
+        Provider: <%= label_tag :provider, @provider.provider_name%>
+      </div>
+
+    <div class="form-group">
+      <%= label_tag :amount, "Number of Hours" %>
+      <%= text_field_tag :amount, "", class: 'form-control' %>
+    </div>
+
+
+
+    <div class="form-group">
+      <% serv_ids = [] %>
+      <% Service.all.each do |service| %>
+          <%   serv_ids << service.id %>
+      <% end %>
+      <%= label_tag :service_id %>
+      <%= select_tag :service_id, options_for_select(serv_ids), prompt: "Select a service", class: '' %>
+    </div>
+
+
+    <%= submit_tag "Submit", class: 'btn btn-success btn-lg'%>
+    or
+    <%= link_to "Cancel", provider_url %>
+
+  <% end %>
+
+  </div>
+</div>

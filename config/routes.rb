@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :spss
   resources :results
 
+  get '/orders/:id' => 'orders#new'
+  post '/orders' => 'orders#create'
+
  end
 
 #   # Providers
