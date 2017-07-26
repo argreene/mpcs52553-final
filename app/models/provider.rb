@@ -5,4 +5,7 @@ class Provider < ApplicationRecord
 
   validates :rate, presence: true, numericality: { greater_than: 0 }
 
+  has_many :orders, class_name: "Orders", foreign_key: :provider_id
+
+
 end

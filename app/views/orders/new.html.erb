@@ -25,14 +25,12 @@
     </div>
 
 
+        <%= @services %>
 
     <div class="form-group">
-      <% serv_ids = [] %>
-      <% Service.all.each do |service| %>
-          <%   serv_ids << service.id %>
-      <% end %>
+
       <%= label_tag :service_id %>
-      <%= select_tag :service_id, options_for_select(serv_ids), prompt: "Select a service", class: '' %>
+      <%= select_tag :service_id, options_for_select(@services), prompt: "Select a service", class: '' %>
     </div>
 
 

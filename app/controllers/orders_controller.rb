@@ -5,6 +5,14 @@ class OrdersController < ApplicationController
     @provider = Provider.find_by(id: params["id"])
     @client =  Client.find_by(id: params["client"])
 
+    @services = []
+    SPS.all.each do |sps|
+      if sps.provider_id == @provider.id
+        service = Service.find_by(id: sps.provider_id)
+        @services << service
+      end
+    end
+
   end
 
   def create
