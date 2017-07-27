@@ -33,6 +33,13 @@
                         rows: 5, class: 'form-control' %>
     </div>
 
+    <h3>Add a service for this provider</h3>
+
+      <%= label_tag :service_id %>
+      <%= select_tag 'service_id', options_from_collection_for_select(Service.all, 'id', 'service_desc'), prompt: "Select a service", class: '' %>
+
+    </div>
+
     <%= submit_tag "Update Provider Information", class: 'btn btn-success btn-lg'%>
     or
     <%= link_to "Cancel", "/providers/#{@provider.id}" %>

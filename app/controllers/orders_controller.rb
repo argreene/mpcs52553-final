@@ -5,13 +5,9 @@ class OrdersController < ApplicationController
     @provider = Provider.find_by(id: params["id"])
     @client =  Client.find_by(id: params["client"])
 
-    @services = []
-    SPS.all.each do |sps|
-      if sps.provider_id == @provider.id
-        service = Service.find_by(id: sps.provider_id)
-        @services << service
-      end
-    end
+    sps = SPS.where(provider_id: @provider.id)
+    serv_ids = sps.pluck(:service_id)
+    @services = Service.where(id: serv_ids)
 
   end
 
@@ -27,9 +23,9 @@ class OrdersController < ApplicationController
       o.service_id = params["service_id"]
       o.amount = params["amount"]
       o.save
-      redirect_to providers_url, notice: "Order placed!"
+      redirect_to "/providers/#{@provider.id}", notice: "Order placed!"
     else
-      redirect_to providers_url, notice: "Client not authorized or signed in"
+      redirect_to "/providers/#{@provider.id}", notice: "Client not authorized or signed in"
     end
 
   end

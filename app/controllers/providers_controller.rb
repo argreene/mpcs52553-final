@@ -18,6 +18,7 @@ class ProvidersController < ApplicationController
     p.provider_address = params["address"]
     p.rate = params["rate"].to_f
     p.description = params["description"]
+    p.password = params['password']
     p.save
 
     redirect_to "/providers", notice: 'New provider successfuly registered.'
@@ -35,6 +36,11 @@ class ProvidersController < ApplicationController
     p.rate = params["rate"].to_f
     p.description = params["description"]
     p.save
+
+    sps = SPS.new
+    sps.provider_id = params["id"]
+    sps.service_id = params["service_id"]
+    sps.save
 
     redirect_to "/providers/#{p.id}", notice: 'Provider successfully updated.'
   end

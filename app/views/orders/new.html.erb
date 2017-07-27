@@ -25,12 +25,10 @@
     </div>
 
 
-        <%= @services %>
-
     <div class="form-group">
 
       <%= label_tag :service_id %>
-      <%= select_tag :service_id, options_for_select(@services), prompt: "Select a service", class: '' %>
+      <%= select_tag 'service_id', options_from_collection_for_select(@services, 'id', 'service_desc'), prompt: "Select a service", class: '' %>
     </div>
 
 

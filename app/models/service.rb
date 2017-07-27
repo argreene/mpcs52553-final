@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
 
-  belongs_to :sps
+#  belongs_to :sps
 
 end
