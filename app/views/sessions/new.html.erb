@@ -44,4 +44,24 @@
       </tbody>
     </table>
   </div>
+
+  <div class="col-sm-4 col-sm-offset-4 well">
+    <h3>Provider Accounts</h3>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% Provider.all.each do |provider| %>
+          <tr>
+            <td><%= provider.provider_contact %></td>
+            <td><%= provider.password %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

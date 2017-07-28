@@ -3,9 +3,18 @@
 
   <p>
 
-    <%= link_to "Edit This Provider Information", "/providers/#{@provider.id}/edit" %>
-    |
-    <%= link_to "Delete This Listing", "/products/#{@provider.id}", method: 'delete', data: { confirm: "Are you crazy?" } %>
+    <% if session["user_id"].present? %>
+        <% user = Provider.find_by(id: session["user_id"]) %>
+
+        <% if user != nil %>
+
+        <% user_id = user.id %>
+        <%= link_to "Edit This Provider Information", "/providers/#{@provider.id}/edit" %>
+        <%= link_to "Delete This Listing", "/products/#{@provider.id}", method: 'delete', data: { confirm: "Are you crazy?" } %>
+        <% end %>
+    <% end %>
+
+
   </p>
 </div>
 
@@ -29,12 +38,16 @@
 
 
     <p class="price"><%= number_to_currency(@provider.rate) %>
-      <% if session["client_id"].present? %>
-          <% user = Client.find_by(id: session["client_id"]) %>
-          <% user_id = user.id %>
-          <%= link_to "Hire", "/orders/#{@provider.id}?client=#{user_id}", class: "btn btn-lg btn-success" %>
+      <% if session["user_id"].present? %>
+
+          <% user = Client.find_by(id: session["user_id"]) %>
+
+          <% if user != nil %>
+            <% user_id = user.id %>
+            <%= link_to "Hire", "/orders/#{@provider.id}?client=#{user_id}", class: "btn btn-lg btn-success" %>
+          <% end %>
       <% else %>
-          Sign In To Hire This Attorney
+          <> Sign In To Hire This Attorney </p>
       <% end %>
 
 

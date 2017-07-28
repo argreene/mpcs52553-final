@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
     @provider = Provider.find_by(id: params["provider_id"])
     @client =  Client.find_by(id: params["client_id"])
 
-    if @client.present? && @client.id == session["client_id"]
+    if @client.present? && @client.id == session["user_id"]
       o = Orders.new
       o.provider_id = @provider.id
       o.client_id = @client.id
@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
   def show
     @client = Client.find_by(id: params["id"])
 
-    if @client.present? && @client.id == session["client_id"]
+    if @client.present? && @client.id == session["user_id"]
       @orders = @client.orders
     else
       redirect_to root_url, notice: "Nice try!"
