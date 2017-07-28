@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>My Account</h1>
+  <h1>Client  Account</h1>
 </div>
 
 <div class="row">
@@ -13,31 +13,39 @@
       <strong>Email Address:</strong> <%= @client.client_contact %>
     </p>
 
-    <p>
-      <strong>Password:</strong> <%= @client.password %>
-    </p>
+  </div>
+</div>
+
+<div>
+  <p>
+    <strong>Orders Placed: </strong>
+  </p>
+</div>
+
+<div class="row table-responsive">
+  <div class="col-sm-6">
+
+    <table class="table table-striped table-bordered">
+      <thead>
+      <th>Order ID</th>
+      <th>Provider</th>
+      <th>Service</th>
+      <th>Date Placed</th>
+      <th>Number of Hours</th>
+      </thead>
+      <% @orders.each do |order| %>
+          <% provider = Provider.find_by(id: order.provider_id) %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= provider.provider_name %></td>
+            <td><%= order.service_id %></td>
+            <td><%= order.created_at.localtime.strftime("%B %d, %Y") %></td>
+            <td><%= order.amount %></td>
+          </tr>
+      <% end %>
+    </table>
 
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-12">
 
-    <h3>Order History</h3>
-
-    <% @orders.each do |order| %>
-
-      <div class="media img-responsive">
-        <div class="media-left">
-          <a href="/providers/<%= order.provider.id %>">
-          </a>
-        </div>
-        <div class="media-body">
-          <h4 class="media-heading"><%= order.provider.provider_name %></h4>
-          <%= order.provider.description %>
-        </div>
-      </div>
-
-    <% end %>
-  </div>
-</div>

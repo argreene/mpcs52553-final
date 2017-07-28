@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "provider_id"
     t.integer "client_id"
     t.integer "service_id"
+    t.datetime "created_at"
     t.index ["client_id"], name: "index_orders_on_client_id"
     t.index ["provider_id"], name: "index_orders_on_provider_id"
     t.index ["service_id"], name: "index_orders_on_service_id"

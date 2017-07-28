@@ -26,6 +26,7 @@ Order
   provider_id: integer
   client_id: integer
   service_id: integer
+  created_at: datetime
 
 
 

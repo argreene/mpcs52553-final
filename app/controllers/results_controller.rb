@@ -2,8 +2,8 @@ class ResultsController < ApplicationController
 
   def index
     search = params["search"]
-    flag = 0
-    @providers = Provider.where("description like ?", "%#{search}%")
+    @providers = Provider.where("provider_name like :search OR provider_contact like :search OR
+                 provider_address like :search OR description like :search", search: "%#{search}%")
   end
 
   def show

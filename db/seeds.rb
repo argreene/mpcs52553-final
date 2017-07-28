@@ -76,7 +76,11 @@ clarence_darrow = Client.create client_contact: 'cdarrow@peoplelaw.com', client_
 Orders.delete_all
 Client.all.each do |client|
   rand(0..5).times do
-    Orders.create client_id: client.id, provider_id: Provider.sample.id, service_id: Service.sample.id, amount: [100..10000].sample
+    Orders.create client_id: client.id,
+                  provider_id: Provider.sample.id,
+                  service_id: Service.sample.id,
+                  amount: [100..10000].sample,
+                  created_at: rand(3..60).days.ago
   end
 end
 

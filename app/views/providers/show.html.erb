@@ -37,6 +37,8 @@
     </p>
 
 
+
+
     <p class="price"><%= number_to_currency(@provider.rate) %>
       <% if session["user_id"].present? %>
 
@@ -47,7 +49,7 @@
             <%= link_to "Hire", "/orders/#{@provider.id}?client=#{user_id}", class: "btn btn-lg btn-success" %>
           <% end %>
       <% else %>
-          <> Sign In To Hire This Attorney </p>
+          <p> Sign In To Hire This Attorney </p>
       <% end %>
 
 

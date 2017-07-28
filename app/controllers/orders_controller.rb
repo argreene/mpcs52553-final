@@ -22,6 +22,7 @@ class OrdersController < ApplicationController
       o.client_id = @client.id
       o.service_id = params["service_id"]
       o.amount = params["amount"]
+      o.created_at = Time.now
       o.save
       redirect_to "/providers/#{@provider.id}", notice: "Order placed!"
     else

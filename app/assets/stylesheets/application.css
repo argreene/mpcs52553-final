@@ -16,7 +16,7 @@
 
 .thumbnail {
     background-color: white;
-    height: 450px;
+    height: 250px;
     border: solid 1px #CCC;
     box-shadow: 2px 2px 2px #CCC;
 }
@@ -41,4 +41,8 @@
 
 .rating {
     color: red;
+}
+
+.header {
+    color: green
 }

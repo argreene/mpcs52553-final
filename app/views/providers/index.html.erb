@@ -1,3 +1,12 @@
+<div class="page-header">
+  <div class = "header">
+  <h2>Are you a lawyer who needs to find co-counsel, contract assistance, and specialized support?  Look no further!
+  Here are some of the best attorneys in the nation ready to jump in and help.  Use to search bar above to narrow your
+  choices.</h2>
+  </div>
+</div>
+
+
 <div class="row">
 
   <% @providers.each do |p| %>
@@ -20,9 +29,7 @@
           <%= truncate p.description, length: 40 %>
           <%= link_to "[see more]", "/providers/#{p.id}" %>
         </p>
-        <p class="price">Hourly Rate: <%= number_to_currency(p.rate) %></p>
-        <p><a href="#" class="btn btn-primary" role="button">Hire provider</a>
-        </p>
+        <p>Hourly Rate: <%= number_to_currency(p.rate) %></p>
       </div>
     </div>
   </div>
