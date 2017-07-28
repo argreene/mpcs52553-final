@@ -3,7 +3,7 @@
 
   <p>
 
-    <% if session["user_id"].present? %>
+    <% if session["user_id"].present? && @provider.id == session["user_id"] %>
         <% user = Provider.find_by(id: session["user_id"]) %>
 
         <% if user != nil %>
@@ -39,7 +39,7 @@
 
 
 
-    <p class="price"><%= number_to_currency(@provider.rate) %>
+    <p><%= number_to_currency(@provider.rate) %>
       <% if session["user_id"].present? %>
 
           <% user = Client.find_by(id: session["user_id"]) %>
