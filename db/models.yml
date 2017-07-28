@@ -4,6 +4,8 @@ Provider
   provider_address: text
   rate: integer
   description: text
+  password_digest: text
+
 
 Service
   service_desc: text

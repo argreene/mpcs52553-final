@@ -1,34 +1,36 @@
 Provider.delete_all
 sara_smith = Provider.create provider_contact: 'ssmith@aaa.com', provider_name: 'Sara Smith',
                              provider_address: '100 West Jackson Chicago IL 60614', rate: 105,
-                             description: 'Sara has twenty years of experience working with multinational corporations.'
+                             description: 'Sara has twenty years of experience working with multinational corporations.', password: 'password'
 jim_jackson = Provider.create provider_contact: 'jjackson@bbb.com', provider_name: 'Jim Jackson',
                               provider_address: '100 West Monroe Peoria IL 60001', rate: 55,
-                              description: 'Jim focuses on indivduals whose rights have been violated by the police.'
+                              description: 'Jim focuses on indivduals whose rights have been violated by the police.', password: 'password'
 junior_smith = Provider.create provider_contact: 'jsmith@ccc.com',provider_name: 'Junior Smith',
                                provider_address: '2 Capital St. Cleveland OH 44709',rate: 75,
-                               description: 'Junior handles tax matters, from straightforward to complex.'
+                               description: 'Junior handles tax matters, from straightforward to complex.', password: 'password'
 karen_carter = Provider.create provider_contact: 'kcarter@ddd.com', provider_name: 'Karen Carter',
                                provider_address: '505 11th Ave New York NY 20005',rate: 100,
-                               description: 'Karen Carter is a nationally recognized trial attorney who has won both bench and jury trials all across the country.'
+                               description: 'Karen Carter is a nationally recognized trial attorney who has won both bench and jury trials all across the country.',
+                               password: 'password'
 lucy_luciano = Provider.create provider_contact: 'lluciano@eee.com', provider_name: 'Lucy Luciano',
                                provider_address: '100 Madison Ave New York NY 20005',rate: 900,
-                               description: 'Lucy Luciano represents individuals and corporations in immigration matters'
+                               description: 'Lucy Luciano represents individuals and corporations in immigration matters', password: 'password'
 jon_smith = Provider.create provider_contact: 'jsmith@aaa.com', provider_name: 'Jon Smith',
                             provider_address: '10 South State Chicago IL 60614', rate: 105,
-                            description: 'Jon a couple of months of experience working with multinational corporations. But he is cheap.'
+                            description: 'Jon a couple of months of experience working with multinational corporations. But he is cheap.', password: 'password'
 bob_jackson = Provider.create provider_contact: 'bjackson@bbb.com', provider_name: 'Bob Jackson',
                               provider_address: '2000 South California Chicago IL 60001', rate: 55,
-                              description: 'Bob focuses on individuals and corporations in the music industry.'
+                              description: 'Bob focuses on individuals and corporations in the music industry.', password: 'password'
 alex_smith = Provider.create provider_contact: 'asmith@ccc.com', provider_name: 'Alex Smith',
                              provider_address: '1000 Monroe Cleveland OH 44709',rate: 75,
-                             description: 'Alex handles individual tax disputes with the IRS.'
+                             description: 'Alex handles individual tax disputes with the IRS.', password: 'password'
 lance_carter = Provider.create provider_contact: 'lcarter@ddd.com', provider_name: 'Lance Carter',
                                provider_address: '11 55th Ave New York NY 20005',rate: 100,
-                               description: 'Lance Carter is a nationally recognized corporate attorney, specializing in mergers and acquisitions.'
+                               description: 'Lance Carter is a nationally recognized corporate attorney, specializing in mergers and acquisitions.',
+                               password: 'password'
 mindy_luciano = Provider.create provider_contact: 'mluciano@eee.com', provider_name: 'Mindy Luciano',
                                 provider_address: '100 Park Ave New York NY 20005',rate: 900,
-                                description: 'Mindy Luciano represents small businesses in all of their matters'
+                                description: 'Mindy Luciano represents small businesses in all of their matters', password: 'password'
 
 
 Service.delete_all

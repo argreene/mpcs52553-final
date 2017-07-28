@@ -7,5 +7,6 @@ class Provider < ApplicationRecord
 
   has_many :orders, class_name: "Orders", foreign_key: :provider_id
 
+  has_secure_password
 
 end

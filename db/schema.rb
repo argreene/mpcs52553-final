@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.text "provider_address"
     t.integer "rate"
     t.text "description"
+    t.text "password_digest"
   end
 
   create_table "services", force: :cascade do |t|
