@@ -24,9 +24,16 @@ class OrdersController < ApplicationController
       o.amount = params["amount"]
       o.created_at = Time.now
       o.save
-      redirect_to "/providers/#{@provider.id}", notice: "Order placed!"
+
+      if o.save
+        redirect_to "/providers/#{@provider.id}", notice: "Order placed!"
+      else
+        redirect_to "/providers/#{@provider.id}", notice: "Client_id and Provider_id required"
+      end
+
+
     else
-      redirect_to "/providers/#{@provider.id}", notice: "Client not authorized or signed in"
+      redirect_to "/providers/#{@provider.id}", notice: "Client not authorized or not signed in"
     end
 
   end

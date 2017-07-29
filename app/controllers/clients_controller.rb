@@ -10,7 +10,13 @@ class ClientsController < ApplicationController
     client.client_address = params['address']
     client.password = params['password']
     client.save
-    redirect_to clients_url, notice: "Thanks for signing up!"
+
+    if client.save
+      redirect_to root_url, notice: "Thanks for signing up!"
+    else
+      redirect_to root_url, notice: "Sign up Failed. All fields must be filled in."
+    end
+
   end
 
   def index

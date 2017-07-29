@@ -10,7 +10,7 @@
 
         <% user_id = user.id %>
         <%= link_to "Edit This Provider Information", "/providers/#{@provider.id}/edit" %>
-        <%= link_to "Delete This Listing", "/products/#{@provider.id}", method: 'delete', data: { confirm: "Are you crazy?" } %>
+        <%= link_to "Delete This Listing", "/providers/#{@provider.id}", method: 'delete', data: { confirm: "Are you crazy?" } %>
         <% end %>
     <% end %>
 

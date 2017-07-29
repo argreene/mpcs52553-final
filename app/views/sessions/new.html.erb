@@ -17,48 +17,48 @@
       <%= text_field_tag :password, "", class: 'form-control' %>
     </div>
 
+    <p>All passwords are 'password'</p>
+
     <%= submit_tag "Let Me In", class: 'btn btn-success btn-lg'%>
     or
     <%= link_to "Cancel", root_url %>
+
+
 
   <% end %>
 
   </div>
 
-  <div class="col-sm-4 col-sm-offset-4 well">
+  <div class="col-sm-4">
     <h3>User Accounts</h3>
     <table class="table">
       <thead>
         <tr>
           <th>Email</th>
-          <th>Password</th>
         </tr>
       </thead>
       <tbody>
         <% Client.all.each do |client| %>
           <tr>
             <td><%= client.client_contact %></td>
-            <td><%= client.password %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 
-  <div class="col-sm-4 col-sm-offset-4 well">
+  <div class="col-sm-4">
     <h3>Provider Accounts</h3>
     <table class="table">
       <thead>
       <tr>
         <th>Email</th>
-        <th>Password</th>
       </tr>
       </thead>
       <tbody>
       <% Provider.all.each do |provider| %>
           <tr>
             <td><%= provider.provider_contact %></td>
-            <td><%= provider.password %></td>
           </tr>
       <% end %>
       </tbody>
