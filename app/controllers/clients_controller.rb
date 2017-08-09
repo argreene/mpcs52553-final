@@ -1,6 +1,8 @@
 class ClientsController < ApplicationController
 
   def new
+    @email = params['e']
+    @name = params['n']
   end
 
   def create
@@ -14,7 +16,7 @@ class ClientsController < ApplicationController
     if client.save
       redirect_to root_url, notice: "Thanks for signing up!"
     else
-      redirect_to root_url, notice: "Sign up Failed. All fields must be filled in."
+      redirect_to "/clients/new?e=#{params['email']}&n=#{params['name']}", notice: "Sign up Failed. All fields must be filled in."
     end
 
   end

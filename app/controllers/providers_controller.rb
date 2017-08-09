@@ -9,6 +9,12 @@ class ProvidersController < ApplicationController
   end
 
   def new
+    @email = params['e']
+    @name = params['n']
+    @address = params['a']
+    @rate = params['r']
+    @description =  params['d']
+
   end
 
   def create
@@ -24,7 +30,8 @@ class ProvidersController < ApplicationController
     if p.save
       redirect_to "/providers", notice: 'New provider successfuly registered.'
     else
-      redirect_to "/providers", notice: 'Registration Failed.  All fields must be filled in.'
+      redirect_to "/providers/new?e=#{params['email']}&n=#{params['name']}&a=#{params['address']}&r=#{params['rate']}&d=#{params['description']}",
+                  :notice => 'Registration Failed.  All fields must be filled in.'
     end
 
   end
